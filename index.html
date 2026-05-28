@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NSE - National Stock Exchange of India</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="announcement">
+    🎉 We're Thrilled to launch our <span>WhatsApp Chatbot</span> &nbsp;— Click here to start chat with NSE INDIA
+  </div>
+
+  <div class="quick-links">
+    <a href="#">Option Chain</a>
+    <a href="#">Market Turnover</a>
+    <a href="#">Listings</a>
+    <a href="#">IPO</a>
+    <a href="#">Circulars</a>
+    <a href="#">Daily Report</a>
+    <a href="#">Holidays</a>
+    <a href="#">Corporates</a>
+    <a href="#">Press Releases</a>
+    <a href="#">Contact Us</a>
+  </div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon">NSE</div>
+      <div class="logo-text">NSE</div>
+    </div>
+
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search company, symbol..."
+          onkeyup="searchCompany()"
+          autocomplete="off"
+        />
+        <button onclick="searchCompany()">🔍</button>
+      </div>
+      <div id="search-results" class="search-dropdown"></div>
+    </div>
+
+    <div class="index-header">
+      <div class="idx-name">📈 Nifty 50</div>
+      <div class="idx-value" id="header-nifty">23,306.45</div>
+      <div class="idx-change" id="header-change">▲ 394.05 (1.72%)</div>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+
+      <li><a href="#" class="active" onclick="showPage('home')">HOME</a></li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('about-us')">ABOUT ▾</a>
+        <ul class="dropdown">
+          <li><span>About NSE</span></li>
+          <li><a href="#" onclick="showPage('about-us')">• About Us</a></li>
+          <li><a href="#" onclick="showPage('structure')">• Structure & Key Personnel</a></li>
+          <li><a href="#" onclick="showPage('investor-relations')">• Investor Relations</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('home')">MARKET DATA ▾</a>
+        <ul class="dropdown">
+          <li><span>Equity</span></li>
+          <li><a href="#" onclick="showPage('pre-open')">• Pre-Open Market</a></li>
+          <li><a href="#" onclick="showPage('equity-sme')">• Equity & SME Market</a></li>
+          <li><a href="#" onclick="showPage('etf')">• Exchange Traded Funds</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('home')">INVEST ▾</a>
+        <ul class="dropdown">
+          <li><span>Investor Education</span></li>
+          <li><a href="#" onclick="showPage('investing-securities')">• Investing In Securities Market</a></li>
+          <li><a href="#" onclick="showPage('charges-taxes')">• Charges And Taxes</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('raising-capital')">LIST ▾</a>
+        <ul class="dropdown">
+          <li><span>Raising Capital</span></li>
+          <li><a href="#" onclick="showPage('raising-capital')">• On-Boarding Process</a></li>
+          <li><a href="#" onclick="showPage('primary-main')">• Primary Market - Main Board</a></li>
+          <li><a href="#" onclick="showPage('primary-sme')">• Primary Market - SME</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('become-member')">TRADE ▾</a>
+        <ul class="dropdown">
+          <li><span>Become a Member</span></li>
+          <li><a href="#" onclick="showPage('become-member')">• Process & FAQs</a></li>
+          <li><a href="#" onclick="showPage('eligibility')">• Eligibility Criteria & Categories</a></li>
+          <li><a href="#" onclick="showPage('fees-deposits')">• Fees, Deposits & Networth</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('market-rules')">REGULATION ▾</a>
+        <ul class="dropdown">
+          <li><span>Exchange</span></li>
+          <li><a href="#" onclick="showPage('market-rules')">• Market Rules & Regulations</a></li>
+          <li><a href="#" onclick="showPage('market-surveillance')">• Market Surveillance</a></li>
+          <li><a href="#" onclick="showPage('exchange-disclosures')">• Exchange Disclosures</a></li>
+        </ul>
+      </li>
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('ncfm')">LEARN ▾</a>
+        <ul class="dropdown">
+          <li><span>Getting Started</span></li>
+          <li><a href="#" onclick="showPage('ncfm')">• Get Started for NCFM</a></li>
+          <li><a href="#" onclick="showPage('online-courses')">• Online Interactive Courses</a></li>
+          <li><a href="#" onclick="showPage('certification')">• Certification Modules</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('circulars')">RESOURCES ▾</a>
+        <ul class="dropdown">
+          <li><span>Exchange Communication</span></li>
+          <li><a href="#" onclick="showPage('circulars')">• Circulars</a></li>
+          <li><a href="#" onclick="showPage('market-timings')">• Market Timings</a></li>
+          <li><a href="#" onclick="showPage('daily-reports')">• Daily Market Reports</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('complaint-process')">COMPLAINTS ▾</a>
+        <ul class="dropdown">
+          <li><span>Introduction</span></li>
+          <li><a href="#" onclick="showPage('complaint-process')">• Process of Making a Complaint</a></li>
+          <li><a href="#" onclick="showPage('online-dispute')">• Online Dispute Resolution</a></li>
+          <li><a href="#" onclick="showPage('arbitration')">• Filing Arbitration</a></li>
+        </ul>
+      </li>
+
+      <li class="has-dropdown">
+        <a href="#" onclick="showPage('market-pulse')">RESEARCH ▾</a>
+        <ul class="dropdown">
+          <li><span>Publications</span></li>
+          <li><a href="#" onclick="showPage('market-pulse')">• Market Pulse</a></li>
+          <li><a href="#" onclick="showPage('working-papers')">• Working Paper Series</a></li>
+          <li><a href="#" onclick="showPage('macro-insights')">• Macro & Market Insights</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <div class="inner-page" id="page-about-us">
+    <div class="breadcrumb">Home › About NSE › About Us</div>
+    <div class="page-banner">ABOUT US</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">About Us <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active" onclick="loadSection('intro')">Introduction</a></li>
+            <li><a href="#" onclick="loadSection('history')">History & Milestones</a></li>
+            <li><a href="#" onclick="loadSection('awards')">Awards & Recognition</a></li>
+            <li><a href="#" onclick="loadSection('products')">Our Products</a></li>
+            <li><a href="#" onclick="loadSection('regulations')">Regulations</a></li>
+            <li><a href="#" onclick="loadSection('facts')">Facts & Figures (Records)</a></li>
+          </ul>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Structure & Key Personnel <span>+</span></div>
+        </div>
+        <div class="sidebar-group">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Investor Relations <span>+</span></div>
+        </div>
+      </div>
+      <div class="page-content" id="about-content">
+        <h3>Introduction</h3>
+        <p>NSE (National Stock Exchange) is an institution of national importance with international stature. We are a trusted market infrastructure institution with high standards of corporate governance.</p>
+        <br>
+        <p>A homegrown brand with a global vision, NSE is counted as one of the world's largest exchanges and a catalyst for driving India's economic growth. NSE was the first exchange in India to implement electronic or screen-based trading which began its operations in 1994; a pioneer in technology which ensures the reliability and performance of its systems through a culture of innovation and investment in technology. NSE operates a market ecosystem to bring in transparency & efficiency.</p>
+        <br>
+        <p>Our robust state-of-the-art technology platform offers high levels of robustness, safety and resilience for trading and investment opportunities across all asset classes and for all categories of investors. NSE is focused on investor protection and disciplined development of the Indian capital market landscape.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-structure">
+    <div class="breadcrumb">Home › About NSE › Structure & Key Personnel</div>
+    <div class="page-banner">STRUCTURE & KEY PERSONNEL</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">About Us <span>+</span></div>
+        </div>
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Structure & Key Personnel <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Corporate Structure</a></li>
+            <li><a href="#">Board of Directors</a></li>
+            <li><a href="#">Key Management</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Corporate Structure</h3>
+        <p>NSE's corporate governance structure comprises a Board of Directors, various committees and a strong management team. The Board oversees the functioning of the Exchange and ensures compliance with regulatory requirements.</p>
+        <br>
+        <p>NSE is a public limited company incorporated in 1992. It operates under the regulatory oversight of SEBI (Securities and Exchange Board of India). The Exchange has a diverse Board that includes public interest directors, shareholder directors and SEBI nominee directors.</p>
+        <br>
+        <h3 style="margin-top:20px;">Board of Directors</h3>
+        <p>The Board of NSE comprises eminent individuals from various fields including finance, technology, law, and public administration, ensuring a balanced and effective governance structure.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-investor-relations">
+    <div class="breadcrumb">Home › About NSE › Investor Relations</div>
+    <div class="page-banner">INVESTOR RELATIONS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Investor Relations <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Announcements</a></li>
+            <li><a href="#">Financial Results</a></li>
+            <li><a href="#">Annual Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Investor Relations</h3>
+        <p>NSE is committed to maintaining transparent and timely communication with all stakeholders. This section provides important financial information, announcements, and reports for investors.</p>
+        <br>
+        <p>NSE regularly publishes its financial results, annual reports, and other material information to keep investors informed about the Exchange's performance and governance.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-pre-open">
+    <div class="breadcrumb">Home › Market Data › Pre-Open Market</div>
+    <div class="page-banner">PRE-OPEN MARKET</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Equity <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Pre-Open Market</a></li>
+            <li><a href="#" onclick="showPage('equity-sme')">Equity & SME Market</a></li>
+            <li><a href="#" onclick="showPage('etf')">Exchange Traded Funds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Pre-Open Market Session</h3>
+        <p>The Pre-Open Market session takes place between <strong>9:00 AM to 9:15 AM</strong> every trading day. It helps in price discovery before the regular market opens at 9:30 AM.</p>
+        <br>
+        <p>During this session, orders can be placed, modified, and cancelled. The equilibrium price determined during this session becomes the opening price of the stock for the day.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Session</th><th>Time</th><th>Activity</th></tr></thead>
+          <tbody>
+            <tr><td>Order Entry</td><td>9:00 AM – 9:08 AM</td><td>Place, Modify, Cancel orders</td></tr>
+            <tr><td>Order Matching</td><td>9:08 AM – 9:12 AM</td><td>Price discovery & order matching</td></tr>
+            <tr><td>Buffer Period</td><td>9:12 AM – 9:15 AM</td><td>Transition to normal market</td></tr>
+            <tr><td>Normal Market Opens</td><td>9:30 AM</td><td>Regular trading begins</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-equity-sme">
+    <div class="breadcrumb">Home › Market Data › Equity & SME Market</div>
+    <div class="page-banner">EQUITY & SME MARKET</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Equity <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('pre-open')">Pre-Open Market</a></li>
+            <li><a href="#" class="active">Equity & SME Market</a></li>
+            <li><a href="#" onclick="showPage('etf')">Exchange Traded Funds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Equity & SME Market</h3>
+        <p>The Equity Market at NSE provides a platform for trading in shares and securities of listed companies. NSE's Capital Market segment offers a fully automated screen-based trading system known as NEAT.</p>
+        <br>
+        <p>The <strong>SME Platform (EMERGE)</strong> was launched in 2012 to enable Small and Medium Enterprises to list and raise capital from the public. It provides an avenue for SMEs to access the capital market and increase their visibility.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Segment</th><th>Description</th><th>Trading Hours</th></tr></thead>
+          <tbody>
+            <tr><td>Capital Market (CM)</td><td>Equity shares of listed companies</td><td>9:30 AM – 5:30 PM</td></tr>
+            <tr><td>SME/EMERGE</td><td>Small & Medium Enterprises</td><td>9:30 AM – 5:30 PM</td></tr>
+            <tr><td>Trade for Trade</td><td>Compulsory delivery segment</td><td>9:30 AM – 5:30 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-etf">
+    <div class="breadcrumb">Home › Market Data › Exchange Traded Funds</div>
+    <div class="page-banner">EXCHANGE TRADED FUNDS (ETFs)</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Equity <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('pre-open')">Pre-Open Market</a></li>
+            <li><a href="#" onclick="showPage('equity-sme')">Equity & SME Market</a></li>
+            <li><a href="#" class="active">Exchange Traded Funds</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Exchange Traded Funds (ETFs)</h3>
+        <p>ETFs are investment funds traded on stock exchanges, similar to individual stocks. They track an index, commodity, bonds, or a basket of assets like an index fund, but trade like a stock on an exchange.</p>
+        <br>
+        <p>NSE is India's leading exchange for ETF trading, offering a wide range of ETFs covering equity indices, gold, debt, and international indices.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>ETF Type</th><th>Example</th><th>Tracks</th></tr></thead>
+          <tbody>
+            <tr><td>Index ETF</td><td>NIFTYBEES</td><td>Nifty 50 Index</td></tr>
+            <tr><td>Gold ETF</td><td>GOLDBEES</td><td>Gold Price</td></tr>
+            <tr><td>Bank ETF</td><td>BANKBEES</td><td>Nifty Bank Index</td></tr>
+            <tr><td>IT ETF</td><td>ITBEES</td><td>Nifty IT Index</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-investing-securities">
+    <div class="breadcrumb">Home › Invest › Investing In Securities Market</div>
+    <div class="page-banner">INVESTING IN SECURITIES MARKET</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Investor Education <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Investing In Securities Market</a></li>
+            <li><a href="#" onclick="showPage('charges-taxes')">Charges And Taxes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Investing in the Securities Market</h3>
+        <p>The securities market provides an avenue for investors to invest their savings productively. This section helps you understand the basics of investing in the Indian securities market.</p>
+        <br>
+        <h3>How to Start Investing?</h3>
+        <p>To start investing in the securities market, you need to:</p>
+        <ul style="margin: 10px 0 10px 20px; line-height:2;">
+          <li>Open a <strong>Demat Account</strong> with a registered Depository Participant (DP)</li>
+          <li>Open a <strong>Trading Account</strong> with a SEBI registered stockbroker</li>
+          <li>Link your <strong>Bank Account</strong> for fund transfers</li>
+          <li>Complete your <strong>KYC</strong> (Know Your Customer) verification</li>
+        </ul>
+        <br>
+        <h3>Types of Investments</h3>
+        <table class="inner-table">
+          <thead><tr><th>Type</th><th>Description</th><th>Risk Level</th></tr></thead>
+          <tbody>
+            <tr><td>Equity Shares</td><td>Ownership in a company</td><td>High</td></tr>
+            <tr><td>Bonds / Debentures</td><td>Debt instruments</td><td>Low-Medium</td></tr>
+            <tr><td>Mutual Funds</td><td>Pooled investment vehicle</td><td>Medium</td></tr>
+            <tr><td>ETFs</td><td>Exchange Traded Funds</td><td>Medium</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-charges-taxes">
+    <div class="breadcrumb">Home › Invest › Charges And Taxes</div>
+    <div class="page-banner">CHARGES AND TAXES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Investor Education <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('investing-securities')">Investing In Securities Market</a></li>
+            <li><a href="#" class="active">Charges And Taxes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Charges and Taxes on Securities Transactions</h3>
+        <p>When you trade in the securities market, various charges and taxes are applicable. Understanding these helps you calculate your actual returns.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Charge Type</th><th>Description</th><th>Approx. Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Brokerage</td><td>Fee charged by broker</td><td>0.01% – 0.5%</td></tr>
+            <tr><td>STT (Securities Transaction Tax)</td><td>Tax on buy/sell of securities</td><td>0.025% – 0.1%</td></tr>
+            <tr><td>GST</td><td>On brokerage & transaction charges</td><td>18%</td></tr>
+            <tr><td>Stamp Duty</td><td>State government tax</td><td>0.015%</td></tr>
+            <tr><td>SEBI Charges</td><td>Regulatory fee</td><td>₹10 per crore</td></tr>
+            <tr><td>Exchange Transaction Charges</td><td>NSE fee</td><td>0.00325%</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h3>Capital Gains Tax</h3>
+        <table class="inner-table">
+          <thead><tr><th>Type</th><th>Holding Period</th><th>Tax Rate</th></tr></thead>
+          <tbody>
+            <tr><td>Short Term Capital Gain (STCG)</td><td>Less than 1 year</td><td>15%</td></tr>
+            <tr><td>Long Term Capital Gain (LTCG)</td><td>More than 1 year</td><td>10% (above ₹1 lakh)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-home">
+
+  <div id="market-status-bar">
+    <span id="market-status-icon">🟢</span>
+    <span id="market-status-text">Market is OPEN</span>
+    <span id="market-status-time"></span>
+  </div>
+
+  <div id="market-closed-overlay">
+    <div id="market-closed-box">
+      <div style="font-size:48px;">🔒</div>
+      <h2>Market is Closed</h2>
+      <p>Trading hours: <strong>9:30 AM – 5:30 PM</strong></p>
+      <p id="overlay-time"></p>
+      <p style="color:#aaa; font-size:13px; margin-top:10px;">You can still view all market data below.</p>
+      <button onclick="document.getElementById('market-closed-overlay').style.display='none'">
+        👁️ View Market Data
+      </button>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="ticker">
+    </div>
+  </div>
+
+  <div class="index-cards" id="index-cards">
+  </div>
+
+  <div class="body-layout">
+
+    <div class="left-panel">
+
+      <div class="chart-box">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">NIFTY 50 ›</div>
+            <div class="chart-value" id="chart-nifty-val">23,306.45</div>
+            <div class="chart-subvalue" id="chart-nifty-chg">▲ 394.05 (1.72%)</div>
+          </div>
+          <div style="font-size:12px; color:#888;">Updated: 25-Mar-2026 15:30 IST</div>
+        </div>
+
+        <div class="chart-stats">
+          <span><div class="dot-blue"></div> Open: 23,064.40</span>
+          <span><div class="dot-green"></div> High: 23,465.35</span>
+          <span><div class="dot-red"></div> Low: 23,063.20</span>
+        </div>
+
+        <div class="chart-btns">
+          <button class="active" onclick="switchChart('1D', this)">1D</button>
+          <button onclick="switchChart('1M', this)">1M</button>
+          <button onclick="switchChart('3M', this)">3M</button>
+          <button onclick="switchChart('6M', this)">6M</button>
+          <button onclick="switchChart('1Y', this)">1Y</button>
+        </div>
+
+        <canvas id="niftyChart" height="180"></canvas>
+      </div>
+
+      <div class="market-table">
+        <h3>📋 Live Market — Top Stocks</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Price (₹)</th>
+              <th>Change (₹)</th>
+              <th>% Change</th>
+              <th>Volume</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="stock-table-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="right-panel">
+
+      <div class="slideshow" id="slideshow">
+
+        <div class="slide active">
+          <img src="img1.png" alt="Market Pulse" />
+        </div>
+
+        <div class="slide">
+          <img src="img2.png" alt="NSE Bull Inauguration" />
+        </div>
+
+        <div class="slide">
+          <img src="img3.png" alt="NSE Bull PM" />
+        </div>
+
+        <div class="slide-dots" id="slide-dots">
+          <div class="dot active" onclick="goSlide(0)"></div>
+          <div class="dot" onclick="goSlide(1)"></div>
+          <div class="dot" onclick="goSlide(2)"></div>
+        </div>
+
+      </div>
+
+      <div class="sidebar-box">
+        <h3>📈 Top Gainers</h3>
+        <div id="gainers-list"></div>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>📉 Top Losers</h3>
+        <div id="losers-list"></div>
+      </div>
+
+      <div class="sidebar-box">
+        <h3>📊 Quick Stats</h3>
+        <div class="sb-row"><span>Stocks Traded</span><span id="qs-traded">3,388</span></div>
+        <div class="sb-row"><span>Advances</span><span class="up" id="qs-advances">503</span></div>
+        <div class="sb-row"><span>Declines</span><span class="down" id="qs-declines">2,813</span></div>
+        <div class="sb-row"><span>Unchanged</span><span id="qs-unchanged">72</span></div>
+        <div class="sb-row"><span>52 Week High</span><span class="up">17</span></div>
+        <div class="sb-row"><span>52 Week Low</span><span class="down">730</span></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="ms-section">
+
+    <div class="ms-left">
+
+      <div class="ms-header">
+        <span class="ms-title">Market Statistics</span>
+        <span class="ms-date">As on 27-Mar-2026 16:00 IST</span>
+      </div>
+
+      <div class="ms-cards-row">
+        <div class="ms-card">
+          <div class="ms-card-label">Stock Traded</div>
+          <div class="ms-card-value" style="color:#1a1a5e;">3,388</div>
+        </div>
+        <div class="ms-card">
+          <div class="ms-card-label">Advances</div>
+          <div class="ms-card-value" style="color:green;">503</div>
+        </div>
+        <div class="ms-card">
+          <div class="ms-card-label">Declines</div>
+          <div class="ms-card-value" style="color:red;">2,813</div>
+        </div>
+        <div class="ms-card">
+          <div class="ms-card-label">Unchanged</div>
+          <div class="ms-card-value" style="color:orange;">72</div>
+        </div>
+      </div>
+
+      <div class="ms-cards-row">
+        <div class="ms-card-small">
+          <div class="ms-card-label">No. of Stocks at<br><strong>52 Week High</strong></div>
+          <div class="ms-card-value up">▲ 17</div>
+        </div>
+        <div class="ms-card-small">
+          <div class="ms-card-label">No. of Stocks at<br><strong>52 Week Low</strong></div>
+          <div class="ms-card-value down">730 ▼</div>
+        </div>
+        <div class="ms-card-small" style="text-align:center;">
+          <div style="font-size:32px;">🔷</div>
+        </div>
+        <div class="ms-card-small">
+          <div class="ms-card-label">No. of Stocks in<br><strong>Upper Circuit</strong></div>
+          <div class="ms-card-value up">39</div>
+        </div>
+        <div class="ms-card-small">
+          <div class="ms-card-label">No. of Stocks in<br><strong>Lower Circuit</strong></div>
+          <div class="ms-card-value down">217</div>
+        </div>
+      </div>
+
+      <div class="ms-cards-row">
+        <div class="ms-card-wide" style="border-left:4px solid #FFD700;">
+          <div class="ms-card-label" style="color:#1a1a5e; font-weight:bold;">Registered Investors</div>
+          <div class="ms-card-value" style="color:#1a1a5e; font-size:22px;">25,46,09,992</div>
+        </div>
+        <div class="ms-card-wide" style="border-left:4px solid #1a1a5e;">
+          <div class="ms-card-label" style="color:#1a1a5e; font-weight:bold;">Market Capitalization</div>
+          <div class="ms-card-value" style="color:#1a1a5e; font-size:16px;">₹ Lac Crs 420.35 | Tn $ 4.44</div>
+          <div style="font-size:12px; color:#888;">27-Mar-2026</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="ms-right">
+
+      <div class="ms-header">
+        <span class="ms-title">Market Turnover</span>
+        <span class="ms-date">As on 27-Mar-2026</span>
+        <button class="view-more-btn">View More ›</button>
+      </div>
+
+      <table class="turnover-table">
+        <thead>
+          <tr>
+            <th>PRODUCTS</th>
+            <th>VOLUME<br><small>(Shares/Contracts)</small></th>
+            <th>VALUE<br><small>(₹ Crores)</small></th>
+            <th>OPEN INTEREST<br><small>(Contracts)</small></th>
+            <th>UPDATED AT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Equity</td><td>665.83 Cr</td><td>1,57,107.82</td><td>–</td><td>16:00</td></tr>
+          <tr><td>Equity Derivatives</td><td>10.81 Cr</td><td>5,01,179.92</td><td>2.40 Cr</td><td>15:30</td></tr>
+          <tr><td>Currency Derivatives</td><td>7.99 L</td><td>7,570.36</td><td>15.38 L</td><td>17:00</td></tr>
+          <tr><td>Interest Rate Derivatives</td><td>3.44 K</td><td>66.66</td><td>38.83 K</td><td>16:58</td></tr>
+          <tr><td>Commodity Derivatives</td><td>18.26 K</td><td>155.53</td><td>3.31 K</td><td>23:33</td></tr>
+          <tr><td>Debt</td><td>–</td><td>25,068.66</td><td>–</td><td>17:19</td></tr>
+          <tr><td>Mutual Fund</td><td>–</td><td>3,411.48</td><td>–</td><td>15:30</td></tr>
+          <tr class="turnover-total"><td><strong>Total</strong></td><td><strong>676.72 Cr</strong></td><td><strong>6,94,560.44</strong></td><td><strong>2.56 Cr</strong></td><td></td></tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="snapshot-section">
+
+    <div class="snapshot-left">
+      <div class="snap-slideshow">
+
+        <div class="snap-slide active">
+          <img src="img4.png" alt="Deepfake Warning" />
+        </div>
+
+        <div class="snap-slide">
+          <img src="img5.png" alt="Investment Chat Groups" />
+        </div>
+
+        <div class="snap-slide">
+          <img src="img6.png" alt="Fake Apps Warning" />
+        </div>
+
+        <div class="snap-dots">
+          <span class="snap-dot active" onclick="goSnapSlide(0)"></span>
+          <span class="snap-dot" onclick="goSnapSlide(1)"></span>
+          <span class="snap-dot" onclick="goSnapSlide(2)"></span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="snapshot-right">
+
+      <div class="ms-header">
+        <span class="ms-title">Market Snapshot</span>
+        <span class="ms-date">As on 27-Mar-2026 16:00 IST</span>
+        <button class="view-more-btn">View More ›</button>
+      </div>
+
+      <div class="snap-tabs">
+        <span class="snap-tab active" onclick="switchSnapshotTab('gainers', this)">Gainers</span>
+        <span class="snap-tab" onclick="switchSnapshotTab('losers', this)">Losers</span>
+        <span class="snap-tab" onclick="switchSnapshotTab('activeVal', this)">Most Active(Value)</span>
+        <span class="snap-tab" onclick="switchSnapshotTab('activeVol', this)">Most Active(Volume)</span>
+        <span class="snap-tab" onclick="switchSnapshotTab('etf', this)">ETFs(Volume)</span>
+      </div>
+
+      <table class="snapshot-table">
+        <thead>
+          <tr>
+            <th>SYMBOL</th>
+            <th>LTP</th>
+            <th>CHNG</th>
+            <th>%CHNG</th>
+            <th>VOLUME<br><small>(Lakhs)</small></th>
+            <th>VALUE<br><small>(₹ Crores)</small></th>
+          </tr>
+        </thead>
+        <tbody id="snapshot-tbody">
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-raising-capital">
+    <div class="breadcrumb">Home › List › Raising Capital</div>
+    <div class="page-banner">RAISING CAPITAL</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Raising Capital <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active" onclick="showPage('raising-capital')">On-Boarding Process</a></li>
+            <li><a href="#" onclick="showPage('primary-main')">Primary Market - Main Board</a></li>
+            <li><a href="#" onclick="showPage('primary-sme')">Primary Market - SME</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>On-Boarding Process</h3>
+        <p>The on-boarding process at NSE is designed to be simple, transparent and efficient. Companies wishing to list on NSE must follow a structured process to ensure compliance with all regulatory requirements.</p>
+        <br>
+        <h3>Steps to List on NSE</h3>
+        <table class="inner-table">
+          <thead><tr><th>Step</th><th>Activity</th><th>Timeline</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Appoint SEBI Registered Merchant Banker</td><td>Before filing</td></tr>
+            <tr><td>2</td><td>File Draft Red Herring Prospectus (DRHP) with SEBI</td><td>30 days before IPO</td></tr>
+            <tr><td>3</td><td>Get SEBI observations letter</td><td>Within 30 days</td></tr>
+            <tr><td>4</td><td>Apply to NSE for in-principle approval</td><td>Before IPO opens</td></tr>
+            <tr><td>5</td><td>Open IPO subscription period</td><td>3-10 working days</td></tr>
+            <tr><td>6</td><td>Basis of allotment finalization</td><td>T+6 days</td></tr>
+            <tr><td>7</td><td>Listing and commencement of trading</td><td>T+6 days</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>NSE provides full support throughout the listing process, including technical assistance, training and dedicated relationship management for new listings.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-primary-main">
+    <div class="breadcrumb">Home › List › Primary Market - Main Board</div>
+    <div class="page-banner">PRIMARY MARKET — MAIN BOARD</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Raising Capital <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('raising-capital')">On-Boarding Process</a></li>
+            <li><a href="#" class="active">Primary Market - Main Board</a></li>
+            <li><a href="#" onclick="showPage('primary-sme')">Primary Market - SME</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Primary Market — Main Board</h3>
+        <p>The Main Board is for large, established companies that meet NSE's eligibility criteria for listing. It provides access to a large pool of institutional and retail investors across India.</p>
+        <br>
+        <h3>Eligibility Criteria for Main Board Listing</h3>
+        <table class="inner-table">
+          <thead><tr><th>Criteria</th><th>Requirement</th></tr></thead>
+          <tbody>
+            <tr><td>Paid-up Capital</td><td>Minimum ₹10 crores post-issue</td></tr>
+            <tr><td>Net Worth</td><td>Minimum ₹25 crores in 3 of last 5 years</td></tr>
+            <tr><td>Track Record</td><td>Minimum 3 years of operations</td></tr>
+            <tr><td>Profitability</td><td>Net profit in at least 3 of last 5 years</td></tr>
+            <tr><td>Market Cap</td><td>Minimum ₹25 crores post-issue</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>Companies listed on the Main Board benefit from enhanced visibility, credibility, and access to a broader investor base including FIIs, mutual funds, and insurance companies.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-primary-sme">
+    <div class="breadcrumb">Home › List › Primary Market - SME</div>
+    <div class="page-banner">PRIMARY MARKET — SME (EMERGE)</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Raising Capital <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('raising-capital')">On-Boarding Process</a></li>
+            <li><a href="#" onclick="showPage('primary-main')">Primary Market - Main Board</a></li>
+            <li><a href="#" class="active">Primary Market - SME</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Primary Market — SME (EMERGE Platform)</h3>
+        <p>NSE EMERGE is the SME platform of NSE, launched in 2012. It enables Small and Medium Enterprises to raise capital from the public markets and gain visibility among investors.</p>
+        <br>
+        <h3>Eligibility Criteria for SME Listing</h3>
+        <table class="inner-table">
+          <thead><tr><th>Criteria</th><th>Requirement</th></tr></thead>
+          <tbody>
+            <tr><td>Paid-up Capital</td><td>Between ₹1 crore and ₹25 crores</td></tr>
+            <tr><td>Net Worth</td><td>Positive net worth</td></tr>
+            <tr><td>Track Record</td><td>Minimum 3 years of operations</td></tr>
+            <tr><td>Net Tangible Assets</td><td>Minimum ₹3 crores</td></tr>
+            <tr><td>Market Makers</td><td>Mandatory market making for 3 years</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>SME listing helps companies enhance brand visibility, provide liquidity to existing shareholders, attract talent, and gain credibility in the marketplace.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-become-member">
+    <div class="breadcrumb">Home › Trade › Become a Member</div>
+    <div class="page-banner">BECOME A MEMBER</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Become a Member <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Process & FAQs</a></li>
+            <li><a href="#" onclick="showPage('eligibility')">Eligibility Criteria & Categories</a></li>
+            <li><a href="#" onclick="showPage('fees-deposits')">Fees, Deposits & Networth</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Process & FAQs — Becoming an NSE Member</h3>
+        <p>NSE membership allows entities to participate as Trading Members in the Exchange's various market segments. The membership process involves fulfilling eligibility criteria and completing documentation requirements.</p>
+        <br>
+        <h3>Membership Process Steps</h3>
+        <table class="inner-table">
+          <thead><tr><th>Step</th><th>Activity</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Submit online application via ENIT portal</td></tr>
+            <tr><td>2</td><td>Submit required documents and declarations</td></tr>
+            <tr><td>3</td><td>Pay application processing fee</td></tr>
+            <tr><td>4</td><td>In-person verification and interview</td></tr>
+            <tr><td>5</td><td>NSE committee approval</td></tr>
+            <tr><td>6</td><td>Pay admission fee and deposit</td></tr>
+            <tr><td>7</td><td>Complete SEBI registration</td></tr>
+            <tr><td>8</td><td>Commence trading operations</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h3>Frequently Asked Questions</h3>
+        <ul style="margin-left:20px; line-height:2.2; font-size:14px;">
+          <li>❓ <strong>Who can become an NSE member?</strong> — Companies, LLPs, individuals meeting eligibility criteria</li>
+          <li>❓ <strong>How long does the process take?</strong> — Approximately 30-45 working days</li>
+          <li>❓ <strong>Is SEBI registration mandatory?</strong> — Yes, SEBI registration as a stockbroker is mandatory</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-eligibility">
+    <div class="breadcrumb">Home › Trade › Eligibility Criteria & Categories</div>
+    <div class="page-banner">ELIGIBILITY CRITERIA & CATEGORIES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Become a Member <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('become-member')">Process & FAQs</a></li>
+            <li><a href="#" class="active">Eligibility Criteria & Categories</a></li>
+            <li><a href="#" onclick="showPage('fees-deposits')">Fees, Deposits & Networth</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Eligibility Criteria for NSE Membership</h3>
+        <p>To become a trading member of NSE, applicants must meet specific eligibility criteria depending on their entity type and the market segment they wish to trade in.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Entity Type</th><th>Net Worth Required</th><th>Segments Available</th></tr></thead>
+          <tbody>
+            <tr><td>Corporate Body</td><td>₹30 Lakh minimum</td><td>CM, F&O, CD, WDM</td></tr>
+            <tr><td>Individual / Sole Proprietor</td><td>₹10 Lakh minimum</td><td>CM only</td></tr>
+            <tr><td>Partnership Firm</td><td>₹20 Lakh minimum</td><td>CM, F&O</td></tr>
+            <tr><td>Bank</td><td>As per RBI norms</td><td>All segments</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h3>Membership Categories</h3>
+        <table class="inner-table">
+          <thead><tr><th>Category</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Trading Member (TM)</td><td>Can trade on own account and on behalf of clients</td></tr>
+            <tr><td>Professional Clearing Member (PCM)</td><td>Provides clearing services to other TMs</td></tr>
+            <tr><td>Self Clearing Member (SCM)</td><td>Clears and settles own trades</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-fees-deposits">
+    <div class="breadcrumb">Home › Trade › Fees, Deposits & Networth</div>
+    <div class="page-banner">FEES, DEPOSITS & NETWORTH</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Become a Member <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('become-member')">Process & FAQs</a></li>
+            <li><a href="#" onclick="showPage('eligibility')">Eligibility Criteria & Categories</a></li>
+            <li><a href="#" class="active">Fees, Deposits & Networth</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Fees, Deposits & Net Worth Requirements</h3>
+        <p>NSE members are required to pay various fees and maintain deposits as part of their membership obligations. These requirements ensure the financial integrity of the Exchange.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Fee Type</th><th>Amount</th><th>Remarks</th></tr></thead>
+          <tbody>
+            <tr><td>Admission Fee (CM Segment)</td><td>₹1,00,000</td><td>One-time, non-refundable</td></tr>
+            <tr><td>Admission Fee (F&O Segment)</td><td>₹2,00,000</td><td>One-time, non-refundable</td></tr>
+            <tr><td>Annual Subscription Fee</td><td>₹25,000 – ₹1,00,000</td><td>Paid every year</td></tr>
+            <tr><td>Security Deposit (CM)</td><td>₹1 crore</td><td>Refundable on exit</td></tr>
+            <tr><td>Security Deposit (F&O)</td><td>₹50 lakh</td><td>Refundable on exit</td></tr>
+            <tr><td>Base Minimum Capital</td><td>₹10 lakh</td><td>Maintained at all times</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>All deposits are held by NSE as security against trading obligations. They are refunded upon cessation of membership after adjusting for any dues.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-market-rules">
+    <div class="breadcrumb">Home › Regulation › Market Rules & Regulations</div>
+    <div class="page-banner">MARKET RULES & REGULATIONS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Market Rules & Regulations</a></li>
+            <li><a href="#" onclick="showPage('market-surveillance')">Market Surveillance</a></li>
+            <li><a href="#" onclick="showPage('exchange-disclosures')">Exchange Disclosures</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Market Rules & Regulations</h3>
+        <p>NSE operates under a comprehensive framework of rules, bye-laws, and regulations that govern the conduct of trading members, listed companies, and other market participants.</p>
+        <br>
+        <h3>Key Regulatory Framework</h3>
+        <table class="inner-table">
+          <thead><tr><th>Rule / Act</th><th>Purpose</th></tr></thead>
+          <tbody>
+            <tr><td>NSE Bye-Laws</td><td>Governs membership, trading, and settlement</td></tr>
+            <tr><td>SEBI (LODR) Regulations 2015</td><td>Listing obligations and disclosure requirements</td></tr>
+            <tr><td>SEBI (PIT) Regulations</td><td>Prevention of Insider Trading</td></tr>
+            <tr><td>SEBI (SAST) Regulations</td><td>Substantial Acquisition of Shares and Takeovers</td></tr>
+            <tr><td>Companies Act 2013</td><td>Corporate governance and compliance</td></tr>
+            <tr><td>FEMA Regulations</td><td>Foreign exchange and FII/FPI investments</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>NSE regularly issues circulars and notifications to inform market participants about changes in rules and procedures. All members are required to comply with these regulations.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-market-surveillance">
+    <div class="breadcrumb">Home › Regulation › Market Surveillance</div>
+    <div class="page-banner">MARKET SURVEILLANCE</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('market-rules')">Market Rules & Regulations</a></li>
+            <li><a href="#" class="active">Market Surveillance</a></li>
+            <li><a href="#" onclick="showPage('exchange-disclosures')">Exchange Disclosures</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Market Surveillance</h3>
+        <p>NSE has a robust market surveillance system that monitors trading activity in real-time to detect and prevent market manipulation, insider trading, and other fraudulent activities.</p>
+        <br>
+        <h3>Surveillance Actions</h3>
+        <table class="inner-table">
+          <thead><tr><th>Action Type</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Price Band</td><td>Limits on daily price movement (5%, 10%, 20%)</td></tr>
+            <tr><td>Circuit Breakers</td><td>Market-wide trading halt for extreme volatility</td></tr>
+            <tr><td>Graded Surveillance Measure (GSM)</td><td>Additional scrutiny for suspicious stocks</td></tr>
+            <tr><td>Additional Surveillance Measure (ASM)</td><td>Enhanced monitoring for volatile stocks</td></tr>
+            <tr><td>Trade-for-Trade (T2T)</td><td>Compulsory delivery, no netting allowed</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>NSE's surveillance department works closely with SEBI to investigate suspected market misconduct and take appropriate action to protect investor interests.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-exchange-disclosures">
+    <div class="breadcrumb">Home › Regulation › Exchange Disclosures</div>
+    <div class="page-banner">EXCHANGE DISCLOSURES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('market-rules')">Market Rules & Regulations</a></li>
+            <li><a href="#" onclick="showPage('market-surveillance')">Market Surveillance</a></li>
+            <li><a href="#" class="active">Exchange Disclosures</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Exchange Disclosures</h3>
+        <p>As a recognized stock exchange, NSE is required to make various disclosures to SEBI, market participants, and the public to ensure transparency in its operations.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Disclosure Type</th><th>Frequency</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>Financial Statements</td><td>Quarterly / Annual</td><td>NSE's own financial results and audit reports</td></tr>
+            <tr><td>Default Waterfall</td><td>As required</td><td>Settlement Guarantee Fund (SGF) details</td></tr>
+            <tr><td>IOSCO Core Principles</td><td>Annual</td><td>Compliance with international standards</td></tr>
+            <tr><td>Investor Grievances</td><td>Monthly</td><td>Status of complaints and resolutions</td></tr>
+            <tr><td>Member Defaults</td><td>As required</td><td>Defaulting/expelled members list</td></tr>
+            <tr><td>Ownership Structure</td><td>Annual</td><td>Shareholding pattern of NSE</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>All disclosures are published on NSE's website in a timely manner and are accessible to all market participants and the general public.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="inner-page" id="page-ncfm">
+    <div class="breadcrumb">Home › Learn › Get Started for NCFM</div>
+    <div class="page-banner">GET STARTED FOR NCFM</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Getting Started <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Get Started for NCFM</a></li>
+            <li><a href="#" onclick="showPage('online-courses')">Online Interactive Courses</a></li>
+            <li><a href="#" onclick="showPage('certification')">Certification Modules</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>NCFM — NSE Certification in Financial Markets</h3>
+        <p>NCFM is an online testing and certification programme offered by NSE Academy. It tests the practical knowledge and skills required to operate in the financial markets.</p>
+        <br>
+        <h3>How to Register for NCFM?</h3>
+        <ul style="margin-left:20px; line-height:2.2; font-size:14px;">
+          <li>📝 Visit the NCFM portal at ncfm-india.com</li>
+          <li>📝 Register with your personal details and email ID</li>
+          <li>📝 Choose the module you want to appear for</li>
+          <li>📝 Pay the examination fee online</li>
+          <li>📝 Schedule your exam at a convenient test center</li>
+          <li>📝 Appear for the online test and receive instant result</li>
+        </ul>
+        <br>
+        <h3>Popular NCFM Modules</h3>
+        <table class="inner-table">
+          <thead><tr><th>Module</th><th>Duration</th><th>Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Financial Markets: A Beginners Module</td><td>2 hours</td><td>₹1,500</td></tr>
+            <tr><td>Equity Derivatives: A Beginners Module</td><td>2 hours</td><td>₹1,500</td></tr>
+            <tr><td>Capital Market (Dealers) Module</td><td>2.5 hours</td><td>₹1,500</td></tr>
+            <tr><td>Mutual Funds: A Beginners Module</td><td>2 hours</td><td>₹1,500</td></tr>
+            <tr><td>Currency Derivatives Module</td><td>2 hours</td><td>₹1,500</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-online-courses">
+    <div class="breadcrumb">Home › Learn › Online Interactive Courses</div>
+    <div class="page-banner">ONLINE INTERACTIVE COURSES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Getting Started <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('ncfm')">Get Started for NCFM</a></li>
+            <li><a href="#" class="active">Online Interactive Courses</a></li>
+            <li><a href="#" onclick="showPage('certification')">Certification Modules</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Online Interactive Courses</h3>
+        <p>NSE Academy offers a wide range of online interactive courses for students, working professionals, and investors who want to enhance their knowledge of financial markets.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Course Name</th><th>Level</th><th>Duration</th></tr></thead>
+          <tbody>
+            <tr><td>Stock Market for Beginners</td><td>Beginner</td><td>10 hours</td></tr>
+            <tr><td>Technical Analysis Masterclass</td><td>Intermediate</td><td>20 hours</td></tr>
+            <tr><td>Fundamental Analysis of Stocks</td><td>Intermediate</td><td>15 hours</td></tr>
+            <tr><td>Options Trading Strategies</td><td>Advanced</td><td>25 hours</td></tr>
+            <tr><td>Mutual Funds Investment Guide</td><td>Beginner</td><td>8 hours</td></tr>
+            <tr><td>Personal Finance & Wealth Management</td><td>Beginner</td><td>12 hours</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>All courses are self-paced and accessible 24/7. Students receive a certificate of completion from NSE Academy upon finishing the course.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-certification">
+    <div class="breadcrumb">Home › Learn › Certification Modules</div>
+    <div class="page-banner">CERTIFICATION MODULES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Getting Started <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('ncfm')">Get Started for NCFM</a></li>
+            <li><a href="#" onclick="showPage('online-courses')">Online Interactive Courses</a></li>
+            <li><a href="#" class="active">Certification Modules</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>NCFM Certification Modules</h3>
+        <p>NSE offers over 40 certification modules covering all aspects of the Indian financial markets. These certifications are recognized by SEBI and are mandatory for certain market roles.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Category</th><th>Modules Available</th></tr></thead>
+          <tbody>
+            <tr><td>Capital Markets</td><td>Equity, Derivatives, Currency, Debt</td></tr>
+            <tr><td>Mutual Funds</td><td>Beginners, AMFI, Advanced</td></tr>
+            <tr><td>Banking</td><td>Treasury, Risk Management, Compliance</td></tr>
+            <tr><td>Insurance</td><td>Life, General, Health Insurance</td></tr>
+            <tr><td>Commodities</td><td>Commodity Derivatives, Gold Markets</td></tr>
+            <tr><td>Research</td><td>Financial Modeling, Valuation, Research Analysis</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>Certifications are valid for 5 years from the date of passing, after which re-certification is required. The passing score is 50% for most modules.</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="inner-page" id="page-circulars">
+    <div class="breadcrumb">Home › Resources › Circulars</div>
+    <div class="page-banner">CIRCULARS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange Communication <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Circulars</a></li>
+            <li><a href="#" onclick="showPage('market-timings')">Market Timings</a></li>
+            <li><a href="#" onclick="showPage('daily-reports')">Daily Market Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Exchange Communication — Circulars</h3>
+        <p>NSE regularly issues circulars to inform trading members, listed companies, and market participants about changes in rules, procedures, system enhancements, and regulatory updates.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Circular No.</th><th>Date</th><th>Subject</th></tr></thead>
+          <tbody>
+            <tr><td>NSE/COMP/2026/012</td><td>27-Mar-2026</td><td>Amendment in Equity Derivatives Contract Specifications</td></tr>
+            <tr><td>NSE/SURV/2026/011</td><td>25-Mar-2026</td><td>Graded Surveillance Measures — Updated List</td></tr>
+            <tr><td>NSE/COMP/2026/010</td><td>22-Mar-2026</td><td>Margin Framework Changes for FY 2026-27</td></tr>
+            <tr><td>NSE/LIST/2026/009</td><td>20-Mar-2026</td><td>Compliance Requirements for Listed Companies Q4</td></tr>
+            <tr><td>NSE/TECH/2026/008</td><td>18-Mar-2026</td><td>System Downtime for Scheduled Maintenance</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>All circulars are binding on trading members and listed companies. Members are advised to regularly check this section for updates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-market-timings">
+    <div class="breadcrumb">Home › Resources › Market Timings</div>
+    <div class="page-banner">MARKET TIMINGS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange Communication <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('circulars')">Circulars</a></li>
+            <li><a href="#" class="active">Market Timings</a></li>
+            <li><a href="#" onclick="showPage('daily-reports')">Daily Market Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Market Timings — NSE</h3>
+        <p>NSE operates different market segments with specific trading hours. All times are in Indian Standard Time (IST).</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Segment</th><th>Session</th><th>Timing (IST)</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">Equity (CM)</td><td>Pre-Open Order Entry</td><td>9:00 AM – 9:08 AM</td></tr>
+            <tr><td>Pre-Open Matching</td><td>9:08 AM – 9:15 AM</td></tr>
+            <tr><td>Normal Market</td><td>9:30 AM – 5:30 PM</td></tr>
+            <tr><td>Equity Derivatives</td><td>Normal Market</td><td>9:30 AM – 5:30 PM</td></tr>
+            <tr><td>Currency Derivatives</td><td>Normal Market</td><td>9:00 AM – 5:00 PM</td></tr>
+            <tr><td>Commodity Derivatives</td><td>Normal Market</td><td>9:00 AM – 11:30 PM</td></tr>
+            <tr><td>Debt Market (WDM)</td><td>Normal Market</td><td>9:00 AM – 5:00 PM</td></tr>
+            <tr><td>Mutual Funds</td><td>Normal Market</td><td>9:30 AM – 3:00 PM</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>Markets are closed on Saturdays, Sundays, and declared public holidays. NSE publishes the list of trading holidays at the beginning of each year.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-daily-reports">
+    <div class="breadcrumb">Home › Resources › Daily Market Reports</div>
+    <div class="page-banner">DAILY MARKET REPORTS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Exchange Communication <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('circulars')">Circulars</a></li>
+            <li><a href="#" onclick="showPage('market-timings')">Market Timings</a></li>
+            <li><a href="#" class="active">Daily Market Reports</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Daily Market Reports (Bhavcopy)</h3>
+        <p>NSE publishes comprehensive daily market reports (Bhavcopy) after market hours. These reports contain detailed information about all securities traded during the day.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Report Name</th><th>Segment</th><th>Available At</th></tr></thead>
+          <tbody>
+            <tr><td>Equity Bhavcopy</td><td>Capital Market</td><td>After 6:00 PM</td></tr>
+            <tr><td>Derivatives Bhavcopy</td><td>Equity F&O</td><td>After 6:00 PM</td></tr>
+            <tr><td>Currency Derivatives Bhavcopy</td><td>Currency F&O</td><td>After 5:30 PM</td></tr>
+            <tr><td>SME Bhavcopy</td><td>EMERGE Platform</td><td>After 6:00 PM</td></tr>
+            <tr><td>Debt Bhavcopy</td><td>WDM Segment</td><td>After 5:30 PM</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>All reports are available in CSV and ZIP format for free download. Historical reports are also available for research and analysis purposes.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="inner-page" id="page-complaint-process">
+    <div class="breadcrumb">Home › Complaints › Process of Making a Complaint</div>
+    <div class="page-banner">PROCESS OF MAKING A COMPLAINT</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Introduction <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Process of Making a Complaint</a></li>
+            <li><a href="#" onclick="showPage('online-dispute')">Online Dispute Resolution</a></li>
+            <li><a href="#" onclick="showPage('arbitration')">Filing Arbitration</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>How to Make a Complaint at NSE</h3>
+        <p>Investors who have grievances against NSE trading members can lodge complaints with NSE. The Exchange provides a structured and time-bound complaint resolution mechanism.</p>
+        <br>
+        <h3>Complaint Filing Process</h3>
+        <table class="inner-table">
+          <thead><tr><th>Step</th><th>Action</th><th>Timeline</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>First approach the concerned trading member directly</td><td>Try to resolve in 15 days</td></tr>
+            <tr><td>2</td><td>If unresolved, file complaint on NSE portal / SCORES</td><td>Within 3 years of issue</td></tr>
+            <tr><td>3</td><td>NSE sends complaint to member for response</td><td>Within 15 days</td></tr>
+            <tr><td>4</td><td>Conciliation process between investor and member</td><td>30 days</td></tr>
+            <tr><td>5</td><td>If unresolved, escalate to arbitration</td><td>As per procedure</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h3>Important Contact Details</h3>
+        <ul style="margin-left:20px; line-height:2.2; font-size:14px;">
+          <li>📧 Email: ignse@nse.co.in</li>
+          <li>📞 Toll Free: 1800-266-0053</li>
+          <li>🌐 SCORES Portal: scores.gov.in</li>
+          <li>🌐 SMARTODR: smartodr.in</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-online-dispute">
+    <div class="breadcrumb">Home › Complaints › Online Dispute Resolution</div>
+    <div class="page-banner">ONLINE DISPUTE RESOLUTION</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Introduction <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('complaint-process')">Process of Making a Complaint</a></li>
+            <li><a href="#" class="active">Online Dispute Resolution</a></li>
+            <li><a href="#" onclick="showPage('arbitration')">Filing Arbitration</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Online Dispute Resolution (ODR) — SMARTODR</h3>
+        <p>SEBI has mandated an Online Dispute Resolution (ODR) mechanism for the securities market. NSE participates in the SMARTODR platform for resolving investor disputes online.</p>
+        <br>
+        <p>SMARTODR is a convenient, cost-effective, and time-bound platform for resolving disputes between investors and market intermediaries without visiting physical arbitration centers.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Feature</th><th>Details</th></tr></thead>
+          <tbody>
+            <tr><td>Platform</td><td>SMARTODR (smartodr.in)</td></tr>
+            <tr><td>Who can use</td><td>Any investor with grievance against a market intermediary</td></tr>
+            <tr><td>Cost</td><td>Free for claims up to ₹10 lakh</td></tr>
+            <tr><td>Resolution Time</td><td>Typically 21-30 days</td></tr>
+            <tr><td>Languages</td><td>English and Hindi</td></tr>
+            <tr><td>Availability</td><td>24x7 online access</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-arbitration">
+    <div class="breadcrumb">Home › Complaints › Filing Arbitration</div>
+    <div class="page-banner">FILING ARBITRATION</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Introduction <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('complaint-process')">Process of Making a Complaint</a></li>
+            <li><a href="#" onclick="showPage('online-dispute')">Online Dispute Resolution</a></li>
+            <li><a href="#" class="active">Filing Arbitration</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Arbitration at NSE</h3>
+        <p>Arbitration is a formal dispute resolution mechanism available to investors whose complaints against trading members are not resolved through the normal complaint process.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Type</th><th>Claim Amount</th><th>No. of Arbitrators</th></tr></thead>
+          <tbody>
+            <tr><td>Sole Arbitrator</td><td>Up to ₹25 lakh</td><td>1 Arbitrator</td></tr>
+            <tr><td>Panel Arbitration</td><td>Above ₹25 lakh</td><td>3 Arbitrators</td></tr>
+            <tr><td>Appellate Arbitration</td><td>Any amount (appeal)</td><td>3 Arbitrators</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <h3>Arbitration Filing Fees</h3>
+        <table class="inner-table">
+          <thead><tr><th>Claim Amount</th><th>Filing Fee</th></tr></thead>
+          <tbody>
+            <tr><td>Up to ₹10 lakh</td><td>₹10,000</td></tr>
+            <tr><td>₹10 lakh to ₹25 lakh</td><td>₹25,000</td></tr>
+            <tr><td>Above ₹25 lakh</td><td>₹30,000 + 0.1% of excess</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="inner-page" id="page-market-pulse">
+    <div class="breadcrumb">Home › Research › Market Pulse</div>
+    <div class="page-banner">MARKET PULSE</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Publications <span>−</span></div>
+          <ul>
+            <li><a href="#" class="active">Market Pulse</a></li>
+            <li><a href="#" onclick="showPage('working-papers')">Working Paper Series</a></li>
+            <li><a href="#" onclick="showPage('macro-insights')">Macro & Market Insights</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Market Pulse — Monthly Review</h3>
+        <p>Market Pulse is NSE's flagship monthly publication that provides a comprehensive review of the Indian economy and financial markets. It covers equity markets, derivatives, currency, commodity, and debt markets.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Edition</th><th>Key Highlights</th></tr></thead>
+          <tbody>
+            <tr><td>March 2026</td><td>Nifty 50 rose 2.3% MoM; FII inflows of ₹18,500 Cr; GDP growth at 7.2%</td></tr>
+            <tr><td>February 2026</td><td>Strong retail participation; SIP inflows at ₹22,000 Cr all-time high</td></tr>
+            <tr><td>January 2026</td><td>Budget rally; Mid-cap index outperforms Nifty; RBI holds rates</td></tr>
+            <tr><td>December 2025</td><td>Year-end review; Nifty gains 14% in CY2025; Record IPO activity</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>Market Pulse is available for free download on NSE's website. It is widely read by institutional investors, analysts, academics, and policy makers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-working-papers">
+    <div class="breadcrumb">Home › Research › Working Paper Series</div>
+    <div class="page-banner">WORKING PAPER SERIES</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Publications <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('market-pulse')">Market Pulse</a></li>
+            <li><a href="#" class="active">Working Paper Series</a></li>
+            <li><a href="#" onclick="showPage('macro-insights')">Macro & Market Insights</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>NSE Working Paper Series</h3>
+        <p>NSE publishes a series of research working papers on topics related to Indian capital markets, financial economics, market microstructure, and investor behavior.</p>
+        <br>
+        <table class="inner-table">
+          <thead><tr><th>Paper No.</th><th>Title</th><th>Year</th></tr></thead>
+          <tbody>
+            <tr><td>WP-2026-01</td><td>High Frequency Trading and Market Quality in Indian Equity Markets</td><td>2026</td></tr>
+            <tr><td>WP-2025-08</td><td>Retail Investor Participation Post-COVID: Trends and Implications</td><td>2025</td></tr>
+            <tr><td>WP-2025-07</td><td>ESG Investing in India: Challenges and Opportunities</td><td>2025</td></tr>
+            <tr><td>WP-2025-06</td><td>Impact of F&O Expiry on Equity Market Volatility</td><td>2025</td></tr>
+          </tbody>
+        </table>
+        <br>
+        <p>Working papers are available for download and represent preliminary research findings. Comments and feedback from researchers and practitioners are welcome.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="inner-page" id="page-macro-insights">
+    <div class="breadcrumb">Home › Research › Macro & Market Insights</div>
+    <div class="page-banner">MACRO & MARKET INSIGHTS</div>
+    <div class="page-layout">
+      <div class="page-sidebar">
+        <div class="sidebar-group open">
+          <div class="sidebar-group-title" onclick="toggleGroup(this)">Publications <span>−</span></div>
+          <ul>
+            <li><a href="#" onclick="showPage('market-pulse')">Market Pulse</a></li>
+            <li><a href="#" onclick="showPage('working-papers')">Working Paper Series</a></li>
+            <li><a href="#" class="active">Macro & Market Insights</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-content">
+        <h3>Macro & Market Insights</h3>
+        <p>NSE's research team publishes periodic insights on macro-economic developments and their impact on Indian financial markets. These notes are concise, data-driven, and actionable.</p>
+        <br>
+        <h3>Recent Macro Indicators</h3>
+        <table class="inner-table">
+          <thead><tr><th>Indicator</th><th>Current Value</th><th>Previous</th><th>Trend</th></tr></thead>
+          <tbody>
+            <tr><td>GDP Growth Rate</td><td>7.2%</td><td>6.9%</td><td class="up">▲ Rising</td></tr>
+            <tr><td>CPI Inflation</td><td>4.8%</td><td>5.1%</td><td class="up">▲ Easing</td></tr>
+            <tr><td>Repo Rate (RBI)</td><td>6.25%</td><td>6.50%</td><td class="up">▲ Cut</td></tr>
+            <tr><td>USD/INR</td><td>83.45</td><td>83.80</td><td class="up">▲ Stable</td></tr>
+            <tr><td>FII Net Investment (Mar)</td><td>₹18,500 Cr</td><td>-₹4,200 Cr</td><td class="up">▲ Positive</td></tr>
+            <tr><td>India VIX</td><td>13.45</td><td>16.20</td><td class="up">▲ Lower</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <footer>
+    <div style="margin-bottom:8px;">
+      <a href="#">Disclaimer</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Contact Us</a>
+      <a href="#">Holidays</a>
+      <a href="#">Site Map</a>
+    </div>
+    <div>© 2026 National Stock Exchange of India Ltd. All rights reserved.</div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

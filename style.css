@@ -1,0 +1,1159 @@
+/* ============================================
+   style.css — NSE Website Styling
+   index.html aur script.js ke saath use karo
+   ============================================ */
+
+
+/* ---- BASIC RESET ---- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  color: #333;
+}
+
+
+/* ---- TOP ANNOUNCEMENT BAR ---- */
+.announcement {
+  background: #cc0000;
+  color: white;
+  padding: 10px 20px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.announcement span {
+  color: #FFD700;
+  font-weight: bold;
+}
+
+
+/* ---- QUICK LINKS BAR ---- */
+.quick-links {
+  background: #1a1a5e;
+  color: white;
+  padding: 7px 20px;
+  font-size: 13px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.quick-links a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.quick-links a:hover {
+  color: #FFD700;
+}
+
+
+/* ---- HEADER ---- */
+header {
+  background: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: #1a1a5e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.logo-text {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1a1a5e;
+}
+
+
+/* ---- SEARCH BAR ---- */
+.search-bar {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 320px;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.search-bar button {
+  background: #1a1a5e;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+
+/* ---- NIFTY INDEX BOX (header right) ---- */
+.index-header {
+  text-align: right;
+  font-size: 13px;
+}
+
+.index-header .idx-name {
+  color: #1a1a5e;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.index-header .idx-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+.index-header .idx-change {
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+/* ---- MAIN NAVIGATION ---- */
+nav {
+  background: white;
+  border-bottom: 2px solid #eee;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+}
+
+nav ul li a {
+  display: block;
+  padding: 12px 18px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #1a1a5e;
+  border-bottom: 3px solid #FFD700;
+}
+
+
+/* ---- SCROLLING TICKER ---- */
+.ticker-wrap {
+  background: white;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  overflow: hidden;
+  padding: 7px 0;
+}
+
+.ticker-inner {
+  display: flex;
+  animation: ticker-scroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  font-size: 13px;
+  border-right: 1px solid #ddd;
+}
+
+.ticker-item .t-name  { font-weight: bold; color: #1a1a5e; }
+.ticker-item .t-price { color: #333; }
+.ticker-item .t-up    { color: green; }
+.ticker-item .t-down  { color: red; }
+
+/* Ticker scroll animation */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+
+/* ---- INDEX CARDS ROW ---- */
+.index-cards {
+  display: flex;
+  gap: 10px;
+  padding: 12px 20px;
+  background: white;
+  border-bottom: 1px solid #eee;
+  overflow-x: auto;
+}
+
+.index-card {
+  min-width: 160px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  background: #fafafa;
+}
+
+.index-card:hover {
+  border-color: #1a1a5e;
+  background: #f0f4ff;
+}
+
+.index-card .ic-name       { font-size: 12px; color: #666; }
+.index-card .ic-value      { font-size: 18px; font-weight: bold; color: #222; margin: 3px 0; }
+.index-card .ic-change-up  { color: green; font-size: 13px; }
+.index-card .ic-change-down{ color: red; font-size: 13px; }
+
+
+/* ---- MAIN BODY LAYOUT ---- */
+.body-layout {
+  display: flex;
+  gap: 15px;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left-panel  { flex: 2; }
+.right-panel { flex: 1; display: flex; flex-direction: column; gap: 15px; }
+
+
+/* ---- CHART BOX ---- */
+.chart-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chart-title    { font-size: 18px; font-weight: bold; color: #1a1a5e; }
+.chart-value    { font-size: 28px; font-weight: bold; }
+.chart-subvalue { color: green; font-size: 14px; }
+
+/* Open / High / Low dots row */
+.chart-stats {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.chart-stats span { display: flex; align-items: center; gap: 5px; }
+
+.dot-blue  { width: 9px; height: 9px; border-radius: 50%; background: #1a1a5e; }
+.dot-green { width: 9px; height: 9px; border-radius: 50%; background: green; }
+.dot-red   { width: 9px; height: 9px; border-radius: 50%; background: red; }
+
+/* Time period buttons */
+.chart-btns {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.chart-btns button {
+  padding: 5px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f0f0f0;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.chart-btns button.active {
+  background: #1a1a5e;
+  color: white;
+  border-color: #1a1a5e;
+}
+
+.chart-btns button:hover {
+  background: #1a1a5e;
+  color: white;
+}
+
+/* Canvas fills full width */
+canvas { width: 100% !important; }
+
+
+/* ---- MARKET TABLE ---- */
+.market-table {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.market-table h3 {
+  font-size: 15px;
+  color: #1a1a5e;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #1a1a5e;
+  padding-bottom: 6px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+table thead {
+  background: #1a1a5e;
+  color: white;
+}
+
+table th,
+table td {
+  padding: 9px 10px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+table tbody tr:hover { background: #f0f4ff; }
+
+.up   { color: green; font-weight: bold; }
+.down { color: red;   font-weight: bold; }
+
+
+/* ---- SLIDESHOW BANNER ---- */
+.slideshow {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 260px;
+}
+
+.slide {
+  display: none;
+  height: 260px;
+  overflow: hidden;
+}
+
+.slide.active { display: block; }
+
+/* Image fills the slide */
+.slide img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Slideshow dots */
+.slide-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+
+.dot.active { background: white; }
+
+
+/* ---- SIDEBAR BOXES ---- */
+.sidebar-box {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px;
+}
+
+.sidebar-box h3 {
+  font-size: 14px;
+  color: #1a1a5e;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sb-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 13px;
+}
+
+.sb-row:last-child { border-bottom: none; }
+
+
+/* ---- FOOTER ---- */
+footer {
+  background: #1a1a5e;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+footer a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+footer a:hover { text-decoration: underline; }
+
+
+/* ============================================
+   MARKET STATISTICS SECTION (Image 1)
+   ============================================ */
+
+.ms-section {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 20px auto 0 auto;
+  background: #f0f2f8;
+  border-radius: 8px;
+}
+
+.ms-left  { flex: 1.1; }
+.ms-right { flex: 1; }
+
+/* Section header row */
+.ms-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.ms-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #111;
+}
+
+.ms-date {
+  font-size: 12px;
+  color: #888;
+}
+
+.view-more-btn {
+  margin-left: auto;
+  padding: 5px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: white;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.view-more-btn:hover { background: #f0f0f0; }
+
+/* Row of stat cards */
+.ms-cards-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+/* Big stat card */
+.ms-card {
+  flex: 1;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 14px;
+  min-width: 80px;
+  position: relative;
+}
+
+/* Small stat card */
+.ms-card-small {
+  flex: 1;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px 12px;
+  min-width: 70px;
+  font-size: 12px;
+}
+
+/* Wide card (Registered Investors / Market Cap) */
+.ms-card-wide {
+  flex: 1;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 16px;
+}
+
+.ms-card-label {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.ms-card-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+/* Turnover table */
+.turnover-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.turnover-table thead {
+  background: #2a2a7e;
+  color: white;
+}
+
+.turnover-table th {
+  padding: 9px 10px;
+  text-align: right;
+  font-size: 12px;
+}
+
+.turnover-table th:first-child { text-align: left; }
+
+.turnover-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+  color: #333;
+}
+
+.turnover-table td:first-child { text-align: left; }
+
+.turnover-table tbody tr:hover { background: #f5f5ff; }
+
+.turnover-total {
+  background: #f0f0f0;
+  font-weight: bold;
+}
+
+
+/* ============================================
+   MARKET SNAPSHOT SECTION (Image 2)
+   ============================================ */
+
+.snapshot-section {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 15px auto 0 auto;
+}
+
+.snapshot-left  { flex: 1; }
+.snapshot-right { flex: 1; }
+
+/* Left video/banner box */
+.snapshot-banner {
+  background: #2a1a6e;
+  border-radius: 8px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.snapshot-banner-img {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.snapshot-banner-text {
+  color: white;
+  font-size: 13px;
+  line-height: 1.6;
+  text-align: left;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 14px;
+  border-radius: 6px;
+}
+
+/* Dots at bottom of banner */
+.snap-dots {
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.snap-dot {
+  width: 20px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+
+.snap-dot.active { background: #FFD700; }
+
+.snap-dot-pause {
+  color: #FFD700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 4px;
+}
+
+/* Snapshot Tabs */
+.snap-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.snap-tab {
+  padding: 8px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #555;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+}
+
+.snap-tab:hover { color: #1a1a5e; }
+
+.snap-tab.active {
+  color: #1a1a5e;
+  font-weight: bold;
+  border-bottom: 3px solid #FFD700;
+}
+
+/* Snapshot Table */
+.snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.snapshot-table thead {
+  background: #2a2a7e;
+  color: white;
+}
+
+.snapshot-table th {
+  padding: 9px 10px;
+  text-align: right;
+  font-size: 12px;
+}
+
+.snapshot-table th:first-child { text-align: left; }
+
+.snapshot-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  text-align: right;
+}
+
+.snapshot-table td:first-child {
+  text-align: left;
+  font-weight: bold;
+  color: #1a1a5e;
+}
+
+.snapshot-table tbody tr:hover { background: #f5f5ff; }
+
+
+/* ============================================
+   MARKET STATUS BAR
+   ============================================ */
+
+#market-status-bar {
+  background: #1a1a5e;
+  color: white;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#market-status-bar.closed {
+  background: #7a0000;
+}
+
+#market-status-text {
+  font-size: 14px;
+}
+
+#market-status-time {
+  margin-left: auto;
+  font-size: 13px;
+  color: #ccc;
+  font-weight: normal;
+}
+
+
+/* ============================================
+   MARKET CLOSED OVERLAY (popup)
+   ============================================ */
+
+#market-closed-overlay {
+  display: none; /* JS se show/hide hoga */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+#market-closed-overlay.show {
+  display: flex;
+}
+
+#market-closed-box {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+#market-closed-box h2 {
+  font-size: 24px;
+  color: #cc0000;
+  margin: 12px 0 8px 0;
+}
+
+#market-closed-box p {
+  font-size: 15px;
+  color: #555;
+  margin: 6px 0;
+}
+
+#market-closed-box button {
+  margin-top: 20px;
+  padding: 10px 24px;
+  background: #1a1a5e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#market-closed-box button:hover {
+  background: #2a2a8e;
+}
+
+
+/* ============================================
+   BUY BUTTON in table
+   ============================================ */
+
+.buy-btn {
+  padding: 5px 14px;
+  background: #009944;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  background: #007733;
+}
+
+/* When market is closed — buy button disabled */
+.buy-btn:disabled {
+  background: #ccc;
+  color: #888;
+  cursor: not-allowed;
+}
+
+
+/* ============================================
+   NAV DROPDOWN MENU
+   ============================================ */
+
+nav ul li {
+  position: relative;
+}
+
+/* Dropdown hidden by default */
+nav ul li .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  min-width: 240px;
+  border: 1px solid #ddd;
+  border-top: 3px solid #1a1a5e;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  list-style: none;
+}
+
+/* Show dropdown on hover */
+nav ul li:hover .dropdown {
+  display: block;
+}
+
+/* Dropdown items */
+nav ul li .dropdown li {
+  padding: 0;
+}
+
+nav ul li .dropdown li span {
+  display: block;
+  padding: 8px 16px 4px 16px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #1a1a5e;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 4px;
+}
+
+nav ul li .dropdown li a {
+  display: block;
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: normal;
+  color: #444;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+nav ul li .dropdown li a:hover {
+  background: #f0f4ff;
+  color: #1a1a5e;
+  border-bottom: none;
+}
+
+
+/* ============================================
+   INNER PAGES (About Us, Market Data etc.)
+   ============================================ */
+
+/* Hidden by default */
+.inner-page {
+  display: none;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  padding: 10px 20px;
+  font-size: 13px;
+  color: #e07000;
+  background: white;
+  border-bottom: 1px solid #eee;
+}
+
+.breadcrumb a { color: #e07000; text-decoration: none; }
+
+/* Top dark banner with title */
+.page-banner {
+  background: linear-gradient(135deg, #1a1a5e, #3a3a9e);
+  color: white;
+  padding: 30px 20px;
+  font-size: 26px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Two column layout: sidebar + content */
+.page-layout {
+  display: flex;
+  gap: 0;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+/* Left sidebar */
+.page-sidebar {
+  width: 260px;
+  min-width: 260px;
+  margin-right: 25px;
+}
+
+.sidebar-group {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+/* Orange title bar when open */
+.sidebar-group-title {
+  background: #f0f0f0;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+}
+
+.sidebar-group.open .sidebar-group-title {
+  background: #c85000;
+  color: white;
+}
+
+.sidebar-group ul {
+  list-style: none;
+  display: none;
+  padding: 6px 0;
+  background: white;
+}
+
+.sidebar-group.open ul {
+  display: block;
+}
+
+.sidebar-group ul li a {
+  display: block;
+  padding: 9px 18px;
+  font-size: 13px;
+  color: #444;
+  text-decoration: none;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.sidebar-group ul li a:hover {
+  background: #f0f4ff;
+  color: #1a1a5e;
+}
+
+.sidebar-group ul li a.active {
+  color: #1a1a5e;
+  font-weight: bold;
+}
+
+/* Right content area */
+.page-content {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+}
+
+.page-content h3 {
+  font-size: 17px;
+  color: #1a1a5e;
+  margin-bottom: 10px;
+}
+
+/* Table inside inner pages */
+.inner-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.inner-table thead {
+  background: #1a1a5e;
+  color: white;
+}
+
+.inner-table th,
+.inner-table td {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.inner-table tbody tr:hover {
+  background: #f0f4ff;
+}
+
+
+/* ============================================
+   SEARCH BAR WITH DROPDOWN
+   ============================================ */
+
+.search-wrapper {
+  position: relative;
+  width: 320px;
+}
+
+.search-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  z-index: 9999;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.search-dropdown.show {
+  display: block;
+}
+
+/* Each search result item */
+.search-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.search-item:last-child { border-bottom: none; }
+
+.search-item:hover { background: #f0f4ff; }
+
+/* Left side: symbol + name */
+.search-item-left .s-symbol {
+  font-weight: bold;
+  font-size: 14px;
+  color: #1a1a5e;
+}
+
+.search-item-left .s-name {
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+/* Right side: price + change */
+.search-item-right {
+  text-align: right;
+}
+
+.search-item-right .s-price {
+  font-weight: bold;
+  font-size: 14px;
+  color: #222;
+}
+
+.search-item-right .s-change {
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+/* No result message */
+.search-no-result {
+  padding: 14px;
+  text-align: center;
+  color: #999;
+  font-size: 13px;
+}
+
+
+/* ============================================
+   SNAPSHOT BOTTOM IMAGE SLIDESHOW
+   ============================================ */
+
+.snap-slideshow {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 280px;
+}
+
+.snap-slide {
+  display: none;
+  height: 280px;
+}
+
+.snap-slide.active { display: block; }
+
+.snap-slide img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.snap-slideshow .snap-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
